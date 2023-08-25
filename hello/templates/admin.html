@@ -1,0 +1,660 @@
+{% extends 'base.html' %}
+{% block css %}
+.container{
+    box-shadow: 1px 1px 20px 5px #d6d4d4;
+    border-radius: 7px;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.center{
+    position: absolute;
+    right: auto;
+    left: aut
+}
+{% endblock css %}
+{% block body %}
+
+<form action="/match" method='post'class="container m-5 ">
+    {% csrf_token %}
+    <div class="container mt-5 p-5 col-4">
+        <h2 class="text-center pb-3">Match Details</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            {% comment %} dropdown {% endcomment %}
+            <div class="input-group mb-3">
+                <select class="form-select" required id="inputGroupSelect02" name="Match_Type" >
+                  <option selected>Match Type</option>
+                  <option value="T20">T20</option>
+                  <option value="Test">Test</option>
+                  <option value="One Day">One Day</option>
+                  <option value="IPL">IPL</option>
+                </select>
+            </div>
+            {% comment %} dropdown {% endcomment %}
+            <div>
+            <input type="date" name='date' class="form-control" required placeholder="date" >
+            </div>
+            <div class="mt-3">
+                <input type="text" name='Team_A' class="form-control" required placeholder="Team A" >
+            </div>
+            <div class="mt-3">
+                <input type="text" name='Team_B' class="form-control" required placeholder="Team B" >
+            </div>
+            <div class="mt-3">
+                <input type="text" name='Toss_W_T' class="form-control" required placeholder="Toss Winnig Team" >
+            </div>
+            <div class="mt-3">
+                <input type="text" name='Match_W_T' class="form-control" required placeholder="Match Winning Team" >
+            </div>
+        </div>
+    </div>
+
+
+<div class="main">
+
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 01</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player1_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player1_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player1_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player1_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player1_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 02</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player2_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player2_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player2_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player2_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player2_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 03</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player3_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player3_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player3_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player3_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player3_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 04</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player4_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player4_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player4_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player4_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player4_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 05</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player5_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player5_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player5_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player5_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player5_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 06</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player6_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player6_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player6_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player6_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player6_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 07</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player7_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player7_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player7_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player7_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player7_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 08</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player8_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player8_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player8_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player8_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player8_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 09</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player9_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player9_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player9_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player9_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player9_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 10</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player10_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player10_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player10_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player10_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player10_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team A : Player 11</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player11_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player11_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player11_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player11_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player11_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 01</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player12_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player12_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player12_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player12_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player12_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 02</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player13_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player13_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player13_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player13_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player13_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 03</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player14_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player14_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player14_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player14_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player14_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 04</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player15_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player15_run' class="form-control" required placeholder="Run" required >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player15_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player15_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player15_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 05</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player16_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player16_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player16_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player16_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player16_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 06</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player17_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player17_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player17_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player17_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player17_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 07</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player18_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player18_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player18_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player18_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player18_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 08</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player19_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player19_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player19_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player19_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player19_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 09</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player20_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player20_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player20_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player20_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player20_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 10</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player21_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player21_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player21_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player21_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player21_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container m-5 p-5 col-4">
+        <h2 class="text-center pb-3">Team B : Player 11</h2>
+        <div class="row d-flex col" style="flex-direction:row;">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelect02" name="Player22_id">
+                  <option selected>Select player</option>
+                  {% for item in p%}
+                  <option value="{{item.id}}">{{item.id}}, {{item.Name}}</option>
+                  {% endfor%}
+                </select>
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player22_run' class="form-control" required placeholder="Run" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player22_b_p' class="form-control" required placeholder="Balls Played" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player22_wicket' class="form-control" required placeholder="Wicket" >
+            </div>
+            <div class="mt-3">
+                <input type="number" name='Player22_b_d' class="form-control" required placeholder="Balls Delivered" >
+            </div>
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary col-5" style="m-5">Submit</button>
+
+    </div>
+
+    
+
+
+</form>
+{% endblock body %}

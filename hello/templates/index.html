@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %} 
+this is title
+{% endblock title %}
+
+{% block body %}
+{% comment %} <h1>this is the headingh1</h1> {% endcomment %}
+
+ <div class="container-fluid  px-0">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {% comment %} <img src="https://source.unsplash.com/random/2200x800/?cricket stadium" class="d-block w-100" alt="..."> {% endcomment %}
+      <img src="/static/stadium.jpg" width='1550' height ='500' alt="">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>THIS IS THE CRICKET WORLD</h5>
+          <p>HERE YOU WILL GET TOP RANKING IN THE ALL CRCIKET FORMAT</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        {% comment %} <img src="https://source.unsplash.com/random/2200x800/?stump" class="d-block w-100" alt="..."> {% endcomment %}
+        <img src="/static/1.jpg"width='1550' height ='500' alt="">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>THIS IS THE CRICKET WORLD</h5>
+          <p>HERE YOU WILL GET TOP RANKING IN THE ALL CRCIKET FORMAT</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        {% comment %} <img src="https://source.unsplash.com/random/2200x800/?cricket ball" class="d-block w-100" alt="..."> {% endcomment %}
+        <img src="/static/india.jpg" width='1550' height ='500'alt="">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>THIS IS THE CRICKET WORLD</h5>
+          <p>HERE YOU WILL GET TOP RANKING IN THE ALL CRCIKET FORMAT</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ </div>
+
+
+
+
+{% comment %} below code is for thumbnill  of the subject  {% endcomment %}
+  
+ <div class="album  bg-light">
+  <div class="container">
+    <h1 class="my-4 text-center">THIS IS THE ICC RANKING OF THE TOP 10 PLAYER</h1>
+
+    <div class="row row-cols-1 row-cols-2 row-cols-3 row-cols-4 g-4">
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/kohli.jpg"width="500" height="350" class="d-block w-100" alt="...">
+           
+          <div class="card-body">
+             <a href="/t20_ranking"><b>T20 FORMAT RANKING</b></a>
+            <p>This section will cointain the top 10 ranking in t20 format</p>
+            <div class="d-flex justify-content-between align-items-center">
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/stadium.jpg"width="500" height="350" class="d-block w-100" alt="...">
+          <div class="card-body">
+             <a href="/oneday_ranking"><b>ONEDAY FORMAT RANKING</b></a>
+            <P>this section will contains top 10 ranking in oneday format</P>
+            <div class="d-flex justify-content-between align-items-center">
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/ball.png"width="500" height="350" class="d-block w-100" alt="...">
+          <div class="card-body">
+             <a href="/test_ranking"><b>TEST FORMAT RANKING</b> </a>
+            <P>this section will contain the top 10  ranking in test format</P>
+            <div class="d-flex justify-content-between align-items-center">
+      
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="/static/bat ball.jpg"width="500" height="350" class="d-block w-100" alt="...">
+          <div class="card-body">
+             <a href="/ipl_ranking"><b>IPL FORMAT RANKING</b> </a>
+            <P>this section will contain the top 10  ranking in ipl format</P>
+            <div class="d-flex justify-content-between align-items-center">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+       </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
+
+ 

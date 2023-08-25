@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock title %}
+{% block body %}
+<h1 class="text-center">ICC top 10 ranking of bowler in t20 format</h1>
+ 
+<table class="table table-bordered table-dark" "my-10" "py-10">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Team</th>
+        {% comment %} <th scope="col">Specification</th> {% endcomment %}
+        <th scope="col">Matches</th>
+        <th scope="col">wickets</th>
+        <th scope="col">Balls</th>
+         
+      </tr>
+    </thead>
+    {% for Post in allPosts %}
+     
+    <tbody>
+        <tr>
+          <th scope="row">{{Post.id}} </th>
+        <td>{{Post.Name}}</td>
+        <td>{{Post.Team}}</td>
+        {% comment %} <td>{{Post.specefication}}</td> {% endcomment %}
+        <td>{{Post.t20_matches}}</td>
+        <td>{{Post.t20_wicket}}</td>
+        <td>{{Post.t20_b_d}}</td>
+        
+        </tr> 
+      </tbody>
+      {%endfor%} 
+{% endblock body %}

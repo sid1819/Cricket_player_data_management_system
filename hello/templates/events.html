@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+<div class="my-3"> <h2 class="text-center">these are the upcoming event details</h2></div>
+{% endblock title %}
+{% block body %}
+<h2 class="text-center">these are the upcoming event details</h2>
+<table class="table table-bordered table-dark" "my-10" "py-10">
+    <thead>
+      <tr>
+        <th scope="col">event_name</th>
+        <th scope="col">event_type</th>
+        <th scope="col">event_format</th>
+        <th scope="col">hosting_country</th>
+        <th scope="col">starting_date</th>
+        <th scope="col">ending_date</th>
+         
+        
+      </tr>
+    </thead>
+    {% for Post in allPosts %}
+    <tbody>
+        <tr>
+          <th scope="row"><b>{{Post.event_name}}</b> </th>
+          <td> <b>{{Post.event_type}}</a>
+          </b> </td>
+          <td> <b>{{Post.event_format}}</b> </td>
+          <td>  <b>{{Post.hosting_country }}</b></td>
+          <td>  <b>{{Post.starting_date}}</b> </td>
+          <td>  <b>{{Post.ending_date}}</b> </td>
+        </tr>
+        {%endfor%}
+         
+      </tbody>
+{% endblock body %}

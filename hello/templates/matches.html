@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+matches
+{% endblock title %}
+{% block body %}
+ 
+<table class="table table-bordered table-dark" "my-10" "py-10">
+  <thead>
+    <tr>
+      <th scope="col">Match_Type</th>
+      <th scope="col">Date</th>
+      <th scope="col">Team_A</th>
+      <th scope="col">Team_B</th>
+      <th scope="col">Toss_W_T</th>  
+      <th scope="col">Match_W_T</th> 
+      
+    </tr>
+  </thead>
+  {% for Post in allPosts %}
+   
+  <tbody>
+      <tr>
+        <th scope="row">{{Post.Match_Type}} </th>
+      <td>{{Post.date}}</td>
+      <td>{{Post.Team_A}}</td>
+      <td>{{Post.Team_B}}</td>
+      <td>{{Post.Toss_W_T}}</td>
+      <td>{{Post.Match_W_T}}</td>
+       
+      </tr> 
+    </tbody>
+    {%endfor%} 
+  </table>
+   
+
+{% endblock body %}

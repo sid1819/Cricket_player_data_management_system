@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock title %}
+{% block body %}
+<h1 class="text-center">ICC top 10 ranking of batsman in t20 format</h1>
+<table class="table table-bordered table-dark" "my-10" "py-10">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Team</th>
+        {% comment %} <th scope="col">Specification</th> {% endcomment %}
+        <th scope="col">Matches</th>  
+        <th scope="col">Run</th>
+        <th scope="col">50s</th>  
+        <th scope="col">100s</th>  
+        {% comment %} <th scope="col">200s</th>   {% endcomment %}
+        <th scope="col">Average</th>  
+        <th scope="col">SR</th>  
+        
+      </tr>
+    </thead>
+    {% for Post in allPosts %}
+    <tbody>
+        <tr>
+          <th scope="row">{{Post.id}} </th>
+        <td>{{Post.Name}}</td>
+        <td>{{Post.Team}}</td>
+        {% comment %} <td>{{Post.specefication}}</td> {% endcomment %}
+        <td>{{Post.t20_matches}}</td>
+        <td>{{Post.t20_run}}</td>
+        <td>{{Post.t20_fifty}}</td>
+        <td>{{Post.t20_century}}</td>
+        <td>{{Post.t20_average}}</td>
+        <td>{{Post.t20_strike_rate}}</td>
+        </tr> 
+      </tbody>
+      {%endfor%} 
+    </table>
+{% endblock body %}

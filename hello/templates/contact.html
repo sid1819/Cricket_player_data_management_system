@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+ <div class="container-fluid px-0 ">
+    <img src="https://source.unsplash.com/random/2200x800/?contact" class="d-block w-100" alt="...">
+
+   <div class="container"> 
+     <h1 class="text-center">Contact Us</h1>
+   
+    {% comment %} 
+    THIS is taken from the bootstrap site
+     {% endcomment %}
+       
+     <form method="post" action="/contact">
+      {% csrf_token %}
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+          </div>
+          <br>
+  
+          <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+          </div>
+          <br>
+          
+          <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+          </div>
+          <br>      
+          
+          <div class="form-group">
+              <label for="desc">feedback for our improvement..</label>
+              <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+          </div>
+          <br>
+          <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+        </div>
+ 
+{% endblock body %}

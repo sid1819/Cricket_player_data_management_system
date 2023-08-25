@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock title %}
+{% block body %}
+<h1 class="text-center" >these are the player</h1>
+<table class="table table-bordered table-white" >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Team</th>
+        <th scope="col">Specification</th>
+        <th scope="col">ODIs</th>  
+        <th scope="col">ODI_run</th>  
+        <th scope="col">50s</th>  
+        <th scope="col">100s</th>  
+        <th scope="col">Average</th>  
+        <th scope="col">SR</th>  
+        <th scope="col">T20s</th>  
+        <th scope="col">T20s_run</th>
+        <th scope="col">50s</th>  
+        <th scope="col">100s</th>  
+        <th scope="col">Average</th>  
+        <th scope="col">SR</th>    
+        <th scope="col">TESTs</th>  
+        <th scope="col">TESTs_run</th>
+        <th scope="col">50s</th>  
+        <th scope="col">100s</th>  
+        <th scope="col">Average</th>  
+        <th scope="col">SR</th>      
+      </tr>
+    </thead>
+    {% for Post in allPosts %}
+    <tbody>
+        <tr>
+        <th scope="row">{{Post.id}} </th>
+        <td>{{Post.Name}}</td>
+        <td>{{Post.Team}}</td>
+        <td>{{Post.specefication}}</td>
+        <td>{{Post.odi_matches}}</td>
+        <td>{{Post.odi_run}}</td>
+        <td>{{Post.odi_fifty}}</td>
+        <td>{{Post.odi_century}}</td>
+        <td>{{Post.odi_average}}</td>
+        <td>{{Post.odi_strike_rate}}</td>
+        <td>{{Post.t20_matches}}</td>
+        <td>{{Post.t20_run}}</td>
+         
+        <td>{{Post.t20_fifty}}</td>
+        <td>{{Post.t20_century}}</td>
+        <td>{{Post.t20_average}}</td>
+        <td>{{Post.t20_strike_rate}}</td>
+        <td>{{Post.test_matches}}</td>
+        <td>{{Post.test_run}}</td>
+         
+        <td>{{Post.test_fifty}}</td>
+        <td>{{Post.test_century}}</td>
+        <td>{{Post.test_average}}</td>
+        <td>{{Post.test_strike_rate}}</td>
+        
+        </tr>
+         
+      </tbody>
+    {% endfor %}
+    
+
+  </table>
+ 
+{% endblock body %}
